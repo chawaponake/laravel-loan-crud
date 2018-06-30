@@ -13,7 +13,7 @@
                 <div class="row">
                     <h1 class="page-header">Loan Details</h1>
                 </div>
-                <div class="row">
+                <div class="row mt-1">
                     <div class="col-sm-12 col-md-12 col-lg-6">
                         <div class="form-group row">
                             <label for="loan_amount" class="col-sm-3"><b>ID:</b></label>
@@ -51,10 +51,10 @@
 
                 </div>
 
-                <div class="row">
+                <div class="row mt-1">
                     <h1 class="page-header">Repayment Schedules</h1>
                 </div>
-                <div class="row">
+                <div class="row mt-1 table-responsive">
                     <table class="table table-striped">
                         <thead>
                         <tr>

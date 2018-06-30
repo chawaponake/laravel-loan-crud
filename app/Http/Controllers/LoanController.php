@@ -25,9 +25,15 @@ class LoanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
         $loans = Loan::orderBy('id', 'desc')->paginate(15);
+        if($request->all()){
+            $filter = $request->all();
+            $loans = Loan::filter($filter)->orderBy('id', 'desc')->paginateFilter(15);
+            return view('loans.index', compact('loans'));
+        }
         return view('loans.index', compact('loans'));
     }
 

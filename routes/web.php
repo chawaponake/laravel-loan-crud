@@ -18,3 +18,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::resource('/loans', 'LoanController');
+Route::get('/loans', 'LoanController@index')->name('searchLoan');
