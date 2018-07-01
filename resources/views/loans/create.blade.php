@@ -68,7 +68,7 @@
                                         <div class="col-sm-6">
                                             <select class="custom-select" id="year" name="year">
                                                 <option value="" hidden >2017</option>
-                                                @foreach(range($year_min,$year_max) as $year)
+                                                @foreach($year_range as $year)
                                                     <option value="{{$year}}" @if(old('year') == $year) selected @endif>{{$year}}</option>
                                                 @endforeach
                                             </select>
@@ -81,7 +81,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <button type="submit" class="btn btn-primary">Create</button>
-                                    <button type="button" class="btn btn-default" onclick="location.href='{{route('loans.index')}}'">Back</button>
+                                    <button type="button" class="btn btn-default" onclick="location.href='{{route('searchLoan')}}'">Back</button>
                                 </div>
                             </div>
                         </form>

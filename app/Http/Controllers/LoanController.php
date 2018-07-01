@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\DB;
 
 class LoanController extends Controller
 {
+
+    private $months;
+    private $year_min;
+    private $year_max;
+    private $year_range;
     /**
      * Create a new controller instance.
      *
@@ -17,6 +22,11 @@ class LoanController extends Controller
      */
     function __construct()
     {
+        $this->months = array('Jan' => 1, 'Feb' => 2, 'Mar' => 3, 'Apr' =>4, 'May' => 5, 'Jun' => 6,
+                                'Jul' =>7 , 'Aug' => 8, 'Sep' => 9, 'Oct' => 10, 'Nov' => 11, 'Dec' => 12);
+        $this->year_min = 2017;
+        $this->year_max = 2050;
+        $this->year_range = range($this->year_min, $this->year_max);
         $this->middleware('auth');
     }
 
@@ -44,11 +54,9 @@ class LoanController extends Controller
      */
     public function create()
     {
-        $months = array('Jan' => 1, 'Feb' => 2, 'Mar' => 3, 'Apr' =>4, 'May' => 5, 'Jun' => 6,
-                        'Jul' =>7 , 'Aug' => 8, 'Sep' => 9, 'Oct' => 10, 'Nov' => 11, 'Dec' => 12);
-        $year_min = 2017;
-        $year_max = 2050;
-        return view('loans.create', compact('months', 'year_min', 'year_max'));
+        $months = $this->months;
+        $year_range = $this->year_range;
+        return view('loans.create', compact('months', 'year_range'));
     }
 
     /**
@@ -120,12 +128,10 @@ class LoanController extends Controller
      */
     public function edit($id)
     {
-        $months = array('Jan' => 1, 'Feb' => 2, 'Mar' => 3, 'Apr' =>4, 'May' => 5, 'Jun' => 6,
-            'Jul' =>7 , 'Aug' => 8, 'Sep' => 9, 'Oct' => 10, 'Nov' => 11, 'Dec' => 12);
-        $year_min = 2017;
-        $year_max = 2050;
+        $months = $this->months;
+        $year_range = $this->year_range;
         $loan = Loan::findOrFail($id);
-        return view('loans.edit', compact('loan', 'months', 'year_min', 'year_max'));
+        return view('loans.edit', compact('loan', 'months', 'year_range'));
     }
 
     /**

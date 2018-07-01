@@ -44,7 +44,7 @@
 
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <button type="button" class="btn btn-default" onclick="location.href='{{route('loans.index')}}'">Back</button>
+                                <button type="button" class="btn btn-default" onclick="location.href='{{route('searchLoan')}}'">Back</button>
                             </div>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                     <div class="col-sm-12 col-md-12 col-lg-6">
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <button type="button" class="btn btn-default" onclick="location.href='{{route('loans.index')}}'">Back</button>
+                                <button type="button" class="btn btn-default" onclick="location.href='{{route('searchLoan')}}'">Back</button>
                             </div>
                         </div>
                     </div>
