@@ -47,7 +47,7 @@
                                 <label for="interest_rate" class="col-sm-3 col-form-label"><b>Interest Rate:</b></label>
                                 <div class="col-sm-9">
                                     <div class="input-group row">
-                                        <input type="text" class="form-control" id="interest_rate" name="interest_rate" placeholder="10" value="{{ number_format($loan->interest_rate) }}">
+                                        <input type="text" class="form-control" id="interest_rate" name="interest_rate" placeholder="10" value="{{ number_format($loan->interest_rate,2) }}">
                                         <div class="input-group-append">
                                             <span class="input-group-text">%</span>
                                         </div>
