@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::namespace('Api')
+    ->group(function () {
+        Route::get('/loans', 'LoanController@index');
+        Route::get('/loans/{id}', 'LoanController@show');
+
+        Route::post('/loans', 'LoanController@store');
+
+        Route::put('/loans/{id}', 'LoanController@update');
+        Route::delete('/loans/{id}', 'LoanController@destroy');
+});

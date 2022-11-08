@@ -1,0 +1,36 @@
+version: "3.7"
+services:
+  app:
+    image: peerpower/ubuntu-php:php7.3.33
+    container_name: loan-crud
+    working_dir: /var/www/
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./:/var/www
+
+  db:
+    image: mysql:5.7
+    container_name: loan-crud-db
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+    volumes:
+      - ./.docker/db_data:/var/lib/mysql
+
+  nginx:
+    image: nginx:alpine
+    container_name: loan-crud-nginx
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./public:/var/www/public
+      - ./.docker/nginx:/etc/nginx/conf.d
+      - ./.docker/nginx-cache:/var/cache/nginx
